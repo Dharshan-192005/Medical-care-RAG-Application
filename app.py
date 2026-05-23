@@ -19,107 +19,67 @@ def inject_styles() -> None:
         """
         <style>
         :root {
-            --care-ink: #102027;
-            --care-muted: #64757d;
-            --care-line: #d7e2e5;
-            --care-soft: #eef7f5;
-            --care-teal: #0f766e;
-            --care-coral: #d85f45;
-            --care-gold: #b7791f;
+            --chat-bg: #f7f7f8;
+            --chat-panel: #ffffff;
+            --chat-ink: #202123;
+            --chat-muted: #6b7280;
+            --chat-line: #e5e7eb;
+            --chat-user: #eff6ff;
+            --chat-user-line: #bfdbfe;
+            --chat-accent: #10a37f;
         }
 
         .stApp {
-            background:
-                radial-gradient(circle at top left, rgba(15, 118, 110, .10), transparent 28rem),
-                linear-gradient(180deg, #f9fcfc 0%, #f3f7f8 100%);
-            color: var(--care-ink);
+            background: var(--chat-bg);
+            color: var(--chat-ink);
         }
 
         [data-testid="stSidebar"] {
             background: #ffffff;
-            border-right: 1px solid var(--care-line);
+            border-right: 1px solid var(--chat-line);
         }
 
         .block-container {
-            max-width: 1040px;
-            padding-top: 2.2rem;
+            max-width: 860px;
+            padding-top: 1.5rem;
             padding-bottom: 3rem;
         }
 
-        .care-hero {
-            border: 1px solid var(--care-line);
-            border-left: 6px solid var(--care-teal);
-            border-radius: 8px;
-            background: #ffffff;
-            padding: 1.35rem 1.45rem;
+        .chat-header {
+            border-bottom: 1px solid var(--chat-line);
             margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            text-align: center;
         }
 
-        .care-kicker {
-            color: var(--care-teal);
-            font-size: .78rem;
-            font-weight: 800;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            margin-bottom: .35rem;
-        }
-
-        .care-hero h1 {
-            font-size: clamp(2rem, 4vw, 3.3rem);
-            line-height: 1.04;
-            margin: 0 0 .55rem 0;
+        .chat-header h1 {
+            font-size: 1.85rem;
+            line-height: 1.2;
+            margin: 0;
             letter-spacing: 0;
         }
 
-        .care-hero p {
-            color: var(--care-muted);
-            font-size: 1.02rem;
-            margin: 0;
-            max-width: 760px;
-        }
-
-        .metric-row {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: .75rem;
-            margin: .75rem 0 1.1rem;
-        }
-
-        .care-metric {
-            border: 1px solid var(--care-line);
-            border-radius: 8px;
-            background: #ffffff;
-            padding: .85rem 1rem;
-        }
-
-        .care-metric span {
-            color: var(--care-muted);
-            display: block;
-            font-size: .78rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .care-metric strong {
-            display: block;
-            font-size: 1.35rem;
-            margin-top: .2rem;
+        .chat-header p {
+            color: var(--chat-muted);
+            font-size: .98rem;
+            margin: .4rem auto 0;
+            max-width: 620px;
         }
 
         .safety-strip {
             align-items: center;
-            background: #fff8ef;
-            border: 1px solid #f2d3a5;
+            background: #fffbeb;
+            border: 1px solid #fde68a;
             border-radius: 8px;
-            color: #5b3a08;
+            color: #713f12;
             display: flex;
             gap: .7rem;
-            margin: .3rem 0 1.2rem;
+            margin: 0 0 1.2rem;
             padding: .75rem .9rem;
         }
 
         .source-card {
-            border: 1px solid var(--care-line);
+            border: 1px solid var(--chat-line);
             border-radius: 8px;
             background: #ffffff;
             margin: .65rem 0;
@@ -136,10 +96,10 @@ def inject_styles() -> None:
         }
 
         .score-pill {
-            background: var(--care-soft);
-            border: 1px solid #b9d9d5;
+            background: #ecfdf5;
+            border: 1px solid #bbf7d0;
             border-radius: 999px;
-            color: var(--care-teal);
+            color: #047857;
             font-size: .78rem;
             font-weight: 800;
             padding: .15rem .5rem;
@@ -147,31 +107,51 @@ def inject_styles() -> None:
         }
 
         .source-text {
-            color: #405158;
+            color: #374151;
             font-size: .92rem;
             line-height: 1.55;
         }
 
         .sidebar-note {
-            background: #f6faf9;
-            border: 1px solid var(--care-line);
+            background: #f9fafb;
+            border: 1px solid var(--chat-line);
             border-radius: 8px;
+            color: #4b5563;
             padding: .8rem;
         }
 
         div[data-testid="stChatMessage"] {
+            border: 1px solid var(--chat-line);
+            border-radius: 10px;
+            background: var(--chat-panel);
+            margin: .75rem 0;
+            padding: .35rem;
+        }
+
+        [data-testid="stChatInput"] {
+            border-top: 1px solid var(--chat-line);
+            background: rgba(247, 247, 248, .96);
+        }
+
+        .stButton button {
             border-radius: 8px;
-            border: 1px solid rgba(215, 226, 229, .8);
-            background: rgba(255, 255, 255, .72);
+        }
+
+        .stButton button[kind="primary"],
+        .stButton button:hover {
+            border-color: var(--chat-accent);
+            color: var(--chat-accent);
         }
 
         @media (max-width: 720px) {
-            .metric-row {
-                grid-template-columns: 1fr;
-            }
-
             .block-container {
                 padding-top: 1rem;
+            }
+
+            .safety-strip {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: .25rem;
             }
         }
         </style>
@@ -238,25 +218,13 @@ ollama_ready = is_ollama_enabled()
 
 st.markdown(
     """
-    <section class="care-hero">
-        <div class="care-kicker">Local document assistant</div>
-        <h1>CareGuide RAG</h1>
+    <section class="chat-header">
+        <h1>Medical Care Assistant</h1>
         <p>
-            Ask health education questions and get grounded answers from the
-            project knowledge base, with source snippets kept visible for review.
+            Ask a health education question. Answers are generated from your local
+            documents and include source snippets for checking.
         </p>
     </section>
-    """,
-    unsafe_allow_html=True,
-)
-
-st.markdown(
-    f"""
-    <div class="metric-row">
-        <div class="care-metric"><span>Documents</span><strong>{len(docs)}</strong></div>
-        <div class="care-metric"><span>Retrieval</span><strong>TF-IDF</strong></div>
-        <div class="care-metric"><span>Generation</span><strong>{"Ollama" if ollama_ready else "Retrieval"}</strong></div>
-    </div>
     """,
     unsafe_allow_html=True,
 )
@@ -272,7 +240,7 @@ st.markdown(
 )
 
 with st.sidebar:
-    st.header("CareGuide")
+    st.header("Medical Assistant")
     st.markdown(
         """
         <div class="sidebar-note">
@@ -293,6 +261,8 @@ with st.sidebar:
         st.success(f"Ollama enabled: {OLLAMA_MODEL}")
     else:
         st.info("Retrieval-only fallback active")
+
+    st.caption("Retrieval: TF-IDF")
 
     if st.button("Clear conversation", use_container_width=True):
         st.session_state.messages = initial_messages()
